@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.devsuperior.dspesquisa.entities.enums.Plataform;
+import com.devsuperior.dspesquisa.entities.enums.Platform;
 
 @Entity
 @Table(name ="tb_game")//seta a tabela da classe como game
@@ -29,13 +29,15 @@ public class Game implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY) //indexa o Id na tabela Game 
 	private Long id;
 	private String title;
-	private Plataform platform;
+	private Platform platform;
 
-	
+
 	@ManyToOne
 	@JoinColumn(name="genre_id")
 	private Genre genre; // associação com o Genero do Jogo. genre_id e a forenKey de Game
 	
+	
+
 	@OneToMany(mappedBy = "game")// entidade relacional com records -- 1 game par varios records
 	private List<Record> records = new ArrayList<>();
 
@@ -43,7 +45,7 @@ public class Game implements Serializable {
 
 	}
 
-	public Game(Long id, String title, Plataform platform, Genre genre) {
+	public Game(Long id, String title, Platform platform, Genre genre) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -67,11 +69,11 @@ public class Game implements Serializable {
 		this.title = title;
 	}
 
-	public Plataform getPlatform() {
+	public Platform getPlatform() {
 		return platform;
 	}
 
-	public void setPlatform(Plataform platform) {
+	public void setPlatform(Platform platform) {
 		this.platform = platform;
 	}
 
