@@ -2,8 +2,6 @@ package com.devsuperior.dspesquisa.dto;
 
 import java.io.Serializable;
 
-import org.springframework.data.jpa.repository.EntityGraph.EntityGraphType;
-
 import com.devsuperior.dspesquisa.entities.Game;
 import com.devsuperior.dspesquisa.entities.enums.Platform;
 
